@@ -26,9 +26,49 @@ const restaurant = {
       close: 24,
     },
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1},${ing2},${ing3}`);
+  },
 };
 
 //spread operator
 
 const newMenu = [...restaurant.mainMenu, 'Momo'];
 console.log(newMenu);
+
+//copy array
+
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+//join 2 arrays or more
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables are arrays,maps,sets but NOT objects
+
+const str = 'ashma';
+const letters = [...str, '', '💝'];
+console.log(letters);
+
+//real world examples
+// const ingredients = [
+//   // prompt("'Let's make pasta! Ingredient 1?"),
+//   // prompt('ingredient 2'),
+//   // prompt('ingredient 3'),
+// ];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+//spread operators work with objects too even if objects are not iterables
+
+//objects
+const newRestaurant = { founded: '2022', ...restaurant, founder: 'Ashma' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Ashma's Cafe";
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
