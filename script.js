@@ -72,3 +72,15 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = "Ashma's Cafe";
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+
+/*rest pattern and parameters: 
+The rest pattern looks almost similar to spread operators . It has the same syntax with same dots but does the opposite to the spread operators. 
+
+*/
+
+//spread beacuse on right side =
+const arr = [1, 2, ...[3, 4]];
+
+//rest beause on left side =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
