@@ -69,13 +69,13 @@ const restaurant = {
 //spread operators work with objects too even if objects are not iterables
 
 //objects
-const newRestaurant = { founded: '2022', ...restaurant, founder: 'Ashma' };
-console.log(newRestaurant);
+// const newRestaurant = { founded: '2022', ...restaurant, founder: 'Ashma' };
+// console.log(newRestaurant);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = "Ashma's Cafe";
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = "Ashma's Cafe";
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 /*rest pattern and parameters: 
 The rest pattern looks almost similar to spread operators . It has the same syntax with same dots but does the opposite to the spread operators. 
@@ -85,118 +85,127 @@ The rest pattern looks almost similar to spread operators . It has the same synt
 //1. destructring
 
 //spread beacuse on right side =
-const arr = [1, 2, ...[3, 4]];
+// const arr = [1, 2, ...[3, 4]];
 
-//rest beause on left side =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// //rest beause on left side =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
 // another example
 
 /*const [pizza,,risotto,...otherFood,bread] cant add elements at the end, as rest element MUST be the last element */
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
 //objects
 
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
 
-//2. functions
+// //2. functions
 
-const add = function (...numbers) {
-  // console.log(numbers);
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-  console.log(sum);
-};
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
+// const add = function (...numbers) {
+//   // console.log(numbers);
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
 
-const x = [23, 5, 7];
-add(...x);
+// const x = [23, 5, 7];
+// add(...x);
 
-restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
-restaurant.orderPizza('mushrooms');
+// restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms');
 
-//coding challenge
+// //coding challenge
 
-//creating
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Dortmund',
-  players: [
-    [
-      'Neur',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Sane',
-      'Lewandoski',
-    ],
+// //creating
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Dortmund',
+//   players: [
+//     [
+//       'Neur',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Sane',
+//       'Lewandoski',
+//     ],
 
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
 
-  score: '4.0',
-  scored: ['Lewandoski', 'Sane', 'Lewandoski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+//   score: '4.0',
+//   scored: ['Lewandoski', 'Sane', 'Lewandoski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-//1. arrays destructuring
-const [players1, players2] = game.players;
-console.log(players1, players2);
+// //1. arrays destructuring
+// const [players1, players2] = game.players;
+// console.log(players1, players2);
 
-//2.
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+// //2.
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
-//3.
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// //3.
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-//4.
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
+// //4.
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
 
-//5.
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
-console.log(team1, draw, team2);
+// //5.
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(team1, draw, team2);
 
-//6.
-const printGoals = function (...players) {
-  console.log(players);
-  console.log(`${players.length} goals were scored`);
-};
-printGoals(...game.scored);
+// //6.
+// const printGoals = function (...players) {
+//   console.log(players);
+//   console.log(`${players.length} goals were scored`);
+// };
+// printGoals(...game.scored);
 
-//7.
-team1 < team2 && console.log('Team 1 is more likely to win the game');
-team2 > team1 && console.log('Team2 is more likely to win the game');
+// //7.
+// team1 < team2 && console.log('Team 1 is more likely to win the game');
+// team2 > team1 && console.log('Team2 is more likely to win the game');
+
+///////////////////////////////////////////////////////////////////////////////////
+
+/*LOOPING ARRAYS : THE FOR-OF LOOP*/
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) console.log(`${i + 1}: ${el}`);
