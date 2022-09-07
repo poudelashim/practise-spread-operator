@@ -29,28 +29,32 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1},${ing2},${ing3}`);
   },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 //spread operator
 
-const newMenu = [...restaurant.mainMenu, 'Momo'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Momo'];
+// console.log(newMenu);
 
-//copy array
+// //copy array
 
-const mainMenuCopy = [...restaurant.mainMenu];
-console.log(mainMenuCopy);
+// const mainMenuCopy = [...restaurant.mainMenu];
+// console.log(mainMenuCopy);
 
-//join 2 arrays or more
+// //join 2 arrays or more
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
 
-// Iterables are arrays,maps,sets but NOT objects
+// // Iterables are arrays,maps,sets but NOT objects
 
-const str = 'ashma';
-const letters = [...str, '', '💝'];
-console.log(letters);
+// const str = 'ashma';
+// const letters = [...str, '', '💝'];
+// console.log(letters);
 
 //real world examples
 // const ingredients = [
@@ -78,9 +82,93 @@ The rest pattern looks almost similar to spread operators . It has the same synt
 
 */
 
+//1. destructring
+
 //spread beacuse on right side =
 const arr = [1, 2, ...[3, 4]];
 
 //rest beause on left side =
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 console.log(a, b, others);
+
+// another example
+
+/*const [pizza,,risotto,...otherFood,bread] cant add elements at the end, as rest element MUST be the last element */
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//objects
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+//2. functions
+
+const add = function (...numbers) {
+  // console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+
+//coding challenge
+
+//creating
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Dortmund',
+  players: [
+    [
+      'Neur',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Sane',
+      'Lewandoski',
+    ],
+
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+
+  score: '4.0',
+  socred: ['Lewandoski', 'Sane', 'Lewandoski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1.
+const [players1, players2] = game.players;
+console.log(players1, players2);
